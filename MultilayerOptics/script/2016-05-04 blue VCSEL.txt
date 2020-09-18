@@ -1,0 +1,39 @@
+# Name is case sensitive
+# All layers are from left side to right side.
+# Thickness is in nanometer.
+# The nk file must named as material.txt. Do not leave blank line.
+# {mat1 d1, mat2 d2, mat3 d3, ... } * n, or {material, thickness}.
+# Set exit and incident media thickness to zero
+# Graded layers can be used as {[Al10%90%, 100.0 10], [Al90%10% 50.0 10]}*20.
+# Graded layers will be expanded into a stack of discretized layers.
+# Default gain media is "QW"
+
+{GaN 200}
+
+{porousGaN 54.7, GaN 41.6}*20
+{GaN 12.12}
+
+{GaN 4}
+{QW 5, GaN 5}*5
+{GaN 4}
+
+{Al20%GaN 12}
+
+{GaN 63.89}
+
+{ITO 50}
+
+{SiOx 37.974}
+
+{SiOx 71.5, HfOx 48.8}*20
+
+{Air 200}
+
+
+# Commands behind the #> prompt will be executed literally.
+#> setMaterialAbsorption(material = "ITO", a = 2000)
+#> searchLaserMode(gainMedium = "QW", g0 = 1000, w0 = 420, g1 = 50, g2 = 5000, w1 = 400, w2 = 450)
+#> saveReflect(w1 = 400, w2 = 450, dw = 0.1)
+#> saveField(w = 421.427, dx = 1)
+#> saveIndex()
+
